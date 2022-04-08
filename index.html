@@ -7,47 +7,157 @@
     <title>Document</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Project CSS -->
+    <!-- Bootstrap Icon Fonts Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Project CSS File -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Navbar tutorial: https://www.youtube.com/watch?v=akXfF066MY0 -->
-    <!-- Navbar images: https://blush.design/search/calendar -->
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- navbar -->
+    <div class="container-xxl">
+        <nav class="navbar navbar-expand-md navbar-light">
             <a href="#" class="navbar-brand">
-                <img src="images/calendar-logo.png" alt="hand holding up a calendar"
-                width="auto"
-                height="50"
-                class="d-inline-block"/>
-                Task Manager</a>
+                <img src="images/calendar-logo.png" width="70" height="70" class="d-inline-block" alt="calendar icon">
+                <span class="fw-bold text-secondary">
+                    Task Manager
+                </span>
+            </a>
+
+            <!-- toggle button for mobile nav -->
             <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#toggleMobileMenu"
-                aria-controls="toggleMobileMenu"
+                data-bs-target="#main-nav"
+                aria-controls="main-nav"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="toggleMobileMenu">
-                <ul class="navbar-nav ms-auto text-center">
-                    <li>
+
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Tasks</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
         </nav>
-    </div>    
     </div>
+    <!-- form section  -->
+    <section>
+        <div class="container-lg">
+            <div class="row justify-content-center my-5 py-5 bg-info rounded">
+                <div class="col-lg-6">
+                    <!-- form fields -->
+                    <form id="taskForm" class="form">
+                        <!-- task title field -->
+                        <label for="task-title" class="form-label">Task Title:</label>
+                        <div class="mb-4 input-group">
+                            <input type="text" class="form-control" id="task-title">
+                        </div>  
+                        <!-- assignee field -->
+                        <label for="assignee" class="form-label">Assigned To:</label>
+                        <div class="mb-4 input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-plus"></i>
+                            </span>
+                            <input type="text" class="form-control" id="assignee">
+                        </div> 
+                        <!-- date field -->
+                        <label for="date" class="form-label">Due Date:</label>
+                        <div class="mb-4 input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-calendar-plus"></i>
+                            </span>
+                            <input type="date" class="form-control" id="task-date">
+                        </div>
+                        <!-- description field  -->
+                        <div class="form-floating">
+                            <textarea id="description" class="form-control" style="height:140px;"></textarea>
+                            <label for="description" class="form-label">Task Description...</label>
+                        </div>
+                        <!-- status dropdown -->
+                        <div class="dropdown mt-4 text-center">
+                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                              Task Status
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <button class="dropdown-item" type="button">TODO</button>
+                              <button class="dropdown-item" type="button">IN PROGRESS</button>
+                              <button class="dropdown-item" type="button">REVIEW</button>
+                              <button class="dropdown-item" type="button">DONE</button>
+                            </div>
+                        </div>
+                        <!-- submit button -->
+                        <div class="mt-4 text-center">
+                            <button type="submit" id="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <section>
+        <div class="container-lg">
+            <div class="task-card col-lg-4">
+                <ul>
+                    <li>Task Title:</li>
+                    <li>Assigned To:</li>
+                    <li>Due Date:</li>
+                    <li>Description:</li>
+                    <li>Status:</li>
+                </ul>
+            </div>
+            <div class="task-card col-lg-4">
+                <ul>
+                    <li>Task Title:</li>
+                    <li>Assigned To:</li>
+                    <li>Due Date:</li>
+                    <li>Description:</li>
+                    <li>Status:</li>
+                </ul>
+            </div>
+            <div class="task-card col-lg-4">
+                <ul>
+                    <li>Task Title:</li>
+                    <li>Assigned To:</li>
+                    <li>Due Date:</li>
+                    <li>Description:</li>
+                    <li>Status:</li>
+                </ul>
+            </div>
+            <div class="task-card col-lg-4">
+                <ul>
+                    <li>Task Title:</li>
+                    <li>Assigned To:</li>
+                    <li>Due Date:</li>
+                    <li>Description:</li>
+                    <li>Status:</li>
+                </ul>
+            </div>
+            <div class="task-card col-lg-4">
+                <ul>
+                    <li>Task Title:</li>
+                    <li>Assigned To:</li>
+                    <li>Due Date:</li>
+                    <li>Description:</li>
+                    <li>Status:</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Project JS File  -->
+    <script src="js/taskManager.js"></script>
+    <script src="js/index.js"></script>
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
