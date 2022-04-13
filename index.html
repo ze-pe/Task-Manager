@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- navbar -->
-    <div class="container-xxl">
+    <!-- navbar container-->
+    <div class="container">
         <nav class="navbar navbar-expand-md navbar-light">
             <a href="#" class="navbar-brand">
                 <img src="images/calendar-logo.png" width="70" height="70" class="d-inline-block" alt="calendar icon">
@@ -52,9 +52,8 @@
             </div>
         </nav>
     </div>
-    <!-- form section  -->
-    <section>
-        <div class="container-lg">
+    <!-- form container  -->
+        <div class="container">
             <div class="row justify-content-center my-5 py-5 bg-info rounded">
                 <div class="col-lg-6">
                     <!-- form fields -->
@@ -87,7 +86,7 @@
                         </div>
                         <!-- status dropdown -->
                         <div class="dropdown mt-4 text-center">
-                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                               Task Status
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -104,57 +103,147 @@
                     </form>
                 </div>
             </div>
-        </div>    
-    </section>
-    <section>
-        <div class="container-lg">
-            <div class="task-card col-lg-4">
-                <ul>
-                    <li>Task Title:</li>
-                    <li>Assigned To:</li>
-                    <li>Due Date:</li>
-                    <li>Description:</li>
-                    <li>Status:</li>
-                </ul>
-            </div>
-            <div class="task-card col-lg-4">
-                <ul>
-                    <li>Task Title:</li>
-                    <li>Assigned To:</li>
-                    <li>Due Date:</li>
-                    <li>Description:</li>
-                    <li>Status:</li>
-                </ul>
-            </div>
-            <div class="task-card col-lg-4">
-                <ul>
-                    <li>Task Title:</li>
-                    <li>Assigned To:</li>
-                    <li>Due Date:</li>
-                    <li>Description:</li>
-                    <li>Status:</li>
-                </ul>
-            </div>
-            <div class="task-card col-lg-4">
-                <ul>
-                    <li>Task Title:</li>
-                    <li>Assigned To:</li>
-                    <li>Due Date:</li>
-                    <li>Description:</li>
-                    <li>Status:</li>
-                </ul>
-            </div>
-            <div class="task-card col-lg-4">
-                <ul>
-                    <li>Task Title:</li>
-                    <li>Assigned To:</li>
-                    <li>Due Date:</li>
-                    <li>Description:</li>
-                    <li>Status:</li>
-                </ul>
+        </div>
+        <!-- card container -->
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 1</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <!-- <a href="#" class="btn btn-success">Update</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 2</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <!-- <a href="#" class="btn btn-success">Update</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 3</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <!-- <a href="#" class="btn btn-success">Update</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 4</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <!-- <a href="#" class="btn btn-success">Update</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 5</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <!-- <a href="#" class="btn btn-success">Update</a> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+        <!-- cards in a list group -->
+        <div class="container">
+            <ul id="taskList" class="list-group-flush">
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 6</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <a href="#" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 7</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <a href="#" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 8</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <a href="#" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 9</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <a href="#" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 10</h5>
+                            <p class="card-text">Task Description</p>
+                            <p class="card-text">Assigned</p>
+                            <p class="card-text">Due Date</p>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <span class="badge badge-success">STATUS</span>
+                            <a href="#" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </li>
+              </ul>
+        </div>
     <!-- Project JS File  -->
     <script src="js/taskManager.js"></script>
     <script src="js/index.js"></script>
