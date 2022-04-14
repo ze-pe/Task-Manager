@@ -7,8 +7,6 @@ const title = document.getElementById('task-title');
 const assigned = document.getElementById('assignee');
 const dueDate = document.getElementById('task-date');
 const description = document.getElementById('description');
-//const taskStatus = document.getElementById('dropdownMenu2'); // need to reference the options
-const taskStatus = document.getElementsByClassName('dropdown-item');
 const btn = document.getElementById('submit');
 
 // alert elements
@@ -18,8 +16,7 @@ const dateAlert = document.getElementById('dateAlert');
 const descriptionAlert = document.getElementById('descriptionAlert');
 
 // validation function
-function validFormFieldInput() { // would a switch also work here?
-    // would like to show all blank fields, not just one at a time
+function validFormFieldInput() { 
     if (title.value === '') {
         titleAlert.style.display = 'block';
     } else {
@@ -50,15 +47,31 @@ function validFormFieldInput() { // would a switch also work here?
 }
 
 // form actions
-taskForm.addEventListener('submit',(event) => {
+taskForm.addEventListener('submit', (event) => {
 
     if (validFormFieldInput() === true) {
         event.preventDefault();
-        newTask.addTask(title.value,description.value,assigned.value,dueDate.value,taskStatus);
-        console.log(newTask.tasks);
+        newTask.addTask(title.value,description.value,assigned.value,dueDate.value);
+        //console.log(newTask.tasks);
         newTask.render();
         taskForm.reset();
     } else {
         event.preventDefault();
     }
 });
+
+const taskListElement = document.querySelector('#taskList');
+
+taskListElement.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement.parentElement;
+        console.log(parentTask);
+        const taskId = Number(parentTask.dataset.taskId);
+        console.log(taskId);
+        const task = newTask.getTaskById(taskId);
+        console.log(task);
+        task.status = 'DONE';
+        newTask.render();
+    }
+})
+
