@@ -58,8 +58,11 @@ class taskManager {
             tasksHtmlList.push(taskHtml);
         }
         // after looping through each task, set a variable to string of html for all the tasks in tasksHtmlList
-        let tasksHtml = tasksHtmlList.join("\n"); 
-        console.log(tasksHtml);
+        let tasksHtml = tasksHtmlList.join("\n"); // try single quotes if double doesn't work
+
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = tasksHtml;
+        
     }
 }
 

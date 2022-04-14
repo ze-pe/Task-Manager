@@ -7,3 +7,7 @@
     background-color: brown;
     float: right;
 }
+
+.alert {
+    display: none;
+}

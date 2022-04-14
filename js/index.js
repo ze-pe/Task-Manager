@@ -2,8 +2,7 @@
 const newTask = new taskManager();
 
 // form elements
-const taskForm = document.getElementById('taskForm');
-const taskList = document.getElementById('taskList'); // taskList id 
+const taskForm = document.getElementById('taskForm'); 
 const title = document.getElementById('task-title');
 const assigned = document.getElementById('assignee');
 const dueDate = document.getElementById('task-date');
@@ -12,64 +11,54 @@ const description = document.getElementById('description');
 const taskStatus = document.getElementsByClassName('dropdown-item');
 const btn = document.getElementById('submit');
 
+// alert elements
+const titleAlert = document.getElementById('titleAlert');
+const assigneeAlert = document.getElementById('assigneeAlert');
+const dateAlert = document.getElementById('dateAlert');
+const descriptionAlert = document.getElementById('descriptionAlert');
+
 // validation function
-function checkFields() { // would a switch also work here?
+function validFormFieldInput() { // would a switch also work here?
     // would like to show all blank fields, not just one at a time
-    if(title.value === '') {
-        alert('TASK TITLE field cannot be left blank.');
-        return false;
-    } 
-
-    if(assigned.value === '') {
-        alert('ASSIGNED TO field cannot be left blank.');
-        return false;
-    } 
-
-    if(dueDate.value === '') {
-        alert('DUE DATE field cannot be left blank.');
-        return false;
-    } 
-
-    if(description.value === '') {
-        alert('DESCRIPTION field cannot be left blank.');
-        return false;
+    if (title.value === '') {
+        titleAlert.style.display = 'block';
+    } else {
+        titleAlert.style.display = 'none';
     }
-    return true;
+
+    if (assigned.value === '') {
+        assigneeAlert.style.display = 'block';
+    } else {
+        assigneeAlert.style.display = 'none';
+    } 
+
+    if (dueDate.value === '') {
+        dateAlert.style.display = 'block';
+    } else {
+        dateAlert.style.display = 'none';
+    }
+
+    if (description.value === '') {
+        descriptionAlert.style.display = 'block';
+    } else {
+        descriptionAlert.style.display = 'none';
+    }
+
+    if (title.value !== '' && assigned.value !== '' && dueDate.value !== '' && description.value !== '') {
+        return true;
+    }
 }
 
 // form actions
 taskForm.addEventListener('submit',(event) => {
-    // perform validation; need to break if condition not met; still creating blank objects for array
-    // checkFields(); 
 
-    // // Make sure to prevent the default action of the form!
-    // event.preventDefault();
-    
-    // // if validation successful, call taskManager.addTask() method
-    // newTask.addTask(title.value,description.value,assigned.value,dueDate.value,taskStatus);
-    // console.log(newTask.tasks);
-    
-    // // restore form element's default values
-    // taskForm.reset();
-
-    if (checkFields() === true) {
+    if (validFormFieldInput() === true) {
         event.preventDefault();
         newTask.addTask(title.value,description.value,assigned.value,dueDate.value,taskStatus);
         console.log(newTask.tasks);
         newTask.render();
-        const taskHtml = createTaskHtml(title.value,description.value,assigned.value,dueDate.value,taskStatus);
-        console.log(taskHtml);
-        taskList.innerHTML = taskHtml;
         taskForm.reset();
     } else {
         event.preventDefault();
     }
 });
-
-// html variable referencing createTaskHtml function in taskManager.js
-// const taskHtml = createTaskHtml(title.value,description.value,assigned.value,dueDate.value,taskStatus);
-// console.log(taskHtml);
-
-
-
-// taskList.innerHTML = taskHtml;
