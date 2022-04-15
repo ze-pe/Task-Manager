@@ -50,7 +50,7 @@ class taskManager {
         for (let i = 0; i < this.tasks.length; i ++) {
             let task = this.tasks[i];
             // pass task due date to date constructor
-            let date = new Date(task.dueDate); // IS THIS BEGIN USED CORRECTLY???
+            let date = new Date(task.dueDate);
             // create variable with readable string representing the date
             let formattedDate = date.toString();
             // create variable to store the HTML of the current task

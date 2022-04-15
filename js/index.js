@@ -20,7 +20,7 @@ const dateAlert = document.getElementById('dateAlert');
 const descriptionAlert = document.getElementById('descriptionAlert');
 
 // validation function
-function validFormFieldInput() { 
+function validFormFieldInput() {
     if (title.value === '') {
         titleAlert.style.display = 'block';
     } else {
