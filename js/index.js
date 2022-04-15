@@ -1,6 +1,10 @@
 // new instance of taskManager class
 const newTask = new taskManager();
 
+// load tasks from local storage and render them
+newTask.load();
+newTask.render();
+
 // form elements
 const taskForm = document.getElementById('taskForm'); 
 const title = document.getElementById('task-title');
@@ -54,6 +58,7 @@ taskForm.addEventListener('submit', (event) => {
         newTask.addTask(title.value,description.value,assigned.value,dueDate.value);
         //console.log(newTask.tasks);
         newTask.render();
+        newTask.save();
         taskForm.reset();
     } else {
         event.preventDefault();
@@ -65,13 +70,26 @@ const taskListElement = document.querySelector('#taskList');
 taskListElement.addEventListener('click', (event) => {
     if (event.target.classList.contains('done-button')) {
         const parentTask = event.target.parentElement.parentElement.parentElement;
-        console.log(parentTask);
+        //console.log('parentTask variable:', parentTask);
         const taskId = Number(parentTask.dataset.taskId);
-        console.log(taskId);
+        //console.log('taskId variable:', taskId);
         const task = newTask.getTaskById(taskId);
-        console.log(task);
+        //console.log('task variable:', task);
         task.status = 'DONE';
+        //console.log('task variable:', task);
+        newTask.save();
         newTask.render();
+        event.preventDefault();
     }
 })
 
+taskListElement.addEventListener('click', (event) => {
+    if(event.target.classList.contains('delete-button')) {
+        const parentTask = event.target.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);
+        newTask.deleteTask(taskId);
+        newTask.save();
+        newTask.render();
+        event.preventDefault();
+    }
+})

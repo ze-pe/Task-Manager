@@ -8,9 +8,9 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) =>
                 <p class="card-text">${description}</p>
                 <p class="card-text">${assignedTo}</p>
                 <p class="card-text">${dueDate}</p>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a class="btn btn-danger delete-button">Delete</a>
                 <span class="badge badge-success">${status}</span>
-                <a href="#" class="btn btn-success done-button">Mark As Done</a>
+                <a class="btn btn-success done-button">Mark As Done</a>
             </div>
         </div>
     </li>
@@ -21,7 +21,7 @@ class taskManager {
     constructor(currentId = 0, status = 'TODO') {
         this.tasks = []; // task array
         this.currentId = currentId; // should we prepend with underscore?
-        this.status =  status;
+        this.status = status;
     }
 
     addTask(name, description, assignedTo, dueDate) {
@@ -67,14 +67,47 @@ class taskManager {
     }
 
     getTaskById(taskId) {
-        let foundTask = [];
+        let foundTask;
         // loop through each task in task list and store in a variable
         for (let i = 0; i < this.tasks.length; i ++) {
             let task = this.tasks[i]; 
             if (task.id === taskId) {
-                foundTask.push(task); // should be task not task.id? I think you need to store the ENTIRE task
+                foundTask = task; // should be task not task.id? I think you need to store the ENTIRE task
             }
         }
         return foundTask;
     }
+
+    save() {
+        let tasksJson = JSON.stringify(this.tasks);
+        localStorage.setItem('tasks', tasksJson);
+        let currentId = this.currentId.toString();
+        localStorage.setItem('currentId', currentId);
+    }
+
+    load() {
+        if (localStorage.getItem('tasks')) {
+            let tasksJson = localStorage.getItem('tasks')
+            this.tasks = JSON.parse(tasksJson);
+        }
+
+        if (localStorage.getItem('currentId')) {
+            let currentId = localStorage.getItem('currentId');
+            this.currentId = Number(JSON.parse(currentId));
+        }
+    }
+
+    deleteTask(taskId) {
+        const newTasks = [];
+        for (let i = 0; i < this.tasks.length; i ++) {
+            const task = this.tasks[i]; 
+        
+            if (task.id !== taskId) {
+                newTasks.push(task);
+                
+            }
+        }
+        this.tasks = newTasks;
+    } 
+        
 }
