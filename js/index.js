@@ -50,12 +50,23 @@ function validFormFieldInput() {
     }
 }
 
+function select() {
+    const select = document.getElementById('dropdown');
+    const option = select.options[select.selectedIndex];
+
+    if (option.value === 'Select Task Status') {
+        return 'TODO';
+    } else {
+        return option.value;
+    }
+}
+
 // form actions
 taskForm.addEventListener('submit', (event) => {
 
     if (validFormFieldInput() === true) {
         event.preventDefault();
-        newTask.addTask(title.value,description.value,assigned.value,dueDate.value);
+        newTask.addTask(title.value,description.value,assigned.value,dueDate.value,select());
         //console.log(newTask.tasks);
         newTask.render();
         newTask.save();

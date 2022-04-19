@@ -3,9 +3,36 @@
     padding: 0;
 }
 
+.container-form {
+    background-color: rgb(206, 247, 233);
+}
+
+#taskForm {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.done-button {
+    background-color: blanchedalmond;
+    position: absolute; 
+    top: 1.5rem; 
+    right: 1.5rem;
+}
+
+.delete-button {
+    background-color: rgb(248, 179, 179);
+    position: absolute; 
+    bottom: 1.5rem; 
+    right: 1.5rem;
+}
+
 .badge {
-    background-color: brown;
-    float: right;
+    font-size: larger;
+    background-color: rgb(39, 126, 31);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: fit-content;
 }
 
 .alert {

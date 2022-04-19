@@ -26,8 +26,8 @@
 </head>
 <body>
     <!-- navbar container-->
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+        <nav class="navbar navbar-light">
             <a href="#" class="navbar-brand">
                 <img src="images/calendar-logo.png" width="70" height="70" class="d-inline-block" alt="calendar icon">
                 <span class="fw-bold text-secondary">
@@ -65,8 +65,8 @@
         </nav>
     </div>
     <!-- form container  -->
-        <div class="container">
-            <div class="row justify-content-center my-5 py-5 bg-info rounded">
+        <div class="container-form">
+            <div class="row justify-content-center my-5 py-5 rounded">
                 <div class="col-lg-6">
                     <!-- form fields -->
                     <form id="taskForm" class="form">
@@ -109,20 +109,18 @@
                             A description is required
                           </div>
                         <!-- status dropdown -->
-                        <div class="dropdown mt-4 text-center">
-                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                              Task Status
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">TODO</button>
-                              <button class="dropdown-item" type="button">IN PROGRESS</button>
-                              <button class="dropdown-item" type="button">REVIEW</button>
-                              <button class="dropdown-item" type="button">DONE</button>
-                            </div>
+                        <div class="dropdown mt-4">
+                            <select id="dropdown" class="form-select" aria-label="select task status">
+                                <option selected disabled>Select Task Status</option>
+                                <option value="TODO">TODO</option>
+                                <option value="IN PROGRESS">IN PROGRESS</option>
+                                <option value="REVIEW">REVIEW</option>
+                                <option value="DONE">DONE</option>
+                            </select>
                         </div>
                         <!-- submit button -->
                         <div class="mt-4 text-center">
-                            <button type="submit" id="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -138,9 +136,9 @@
                             <p class="card-text">Task Description</p>
                             <p class="card-text">Assigned</p>
                             <p class="card-text">Due Date</p>
-                            <a class="btn btn-danger delete-button">Delete</a>
+                            <button class="btn btn-danger delete-button">Delete</button>
                             <span class="badge badge-success">TODO</span>
-                            <a class="btn btn-success done-button">Update</a>
+                            <button class="btn btn-success done-button">Mark As Done</button>
                         </div>
                     </div>
                 </li> -->

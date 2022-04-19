@@ -5,12 +5,12 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) =>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
-                <p class="card-text">${description}</p>
-                <p class="card-text">${assignedTo}</p>
-                <p class="card-text">${dueDate}</p>
-                <a class="btn btn-danger delete-button">Delete</a>
+                <p class="card-text">Task Description: ${description}</p>
+                <p class="card-text">Assigned To: ${assignedTo}</p>
+                <p class="card-text">Due Date: ${dueDate}</p>
+                <button class="btn btn-danger delete-button">Delete</button>
                 <span class="badge badge-success">${status}</span>
-                <a class="btn btn-success done-button">Mark As Done</a>
+                <button class="btn btn-warning done-button">Mark As Done</button>
             </div>
         </div>
     </li>
@@ -18,13 +18,12 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, id) =>
 
 // create taskManager class
 class taskManager {
-    constructor(currentId = 0, status = 'TODO') {
+    constructor(currentId = 0) {
         this.tasks = []; // task array
-        this.currentId = currentId; // should we prepend with underscore?
-        this.status = status;
+        this.currentId = currentId;
     }
 
-    addTask(name, description, assignedTo, dueDate) {
+    addTask(name, description, assignedTo, dueDate, status) {
         // create task object
         const task = {
             id: this.currentId,
@@ -32,7 +31,7 @@ class taskManager {
             description: description,
             assignedTo: assignedTo,
             dueDate: dueDate,
-            status: this.status
+            status: status
         };
 
         //console.log(newTask);
@@ -52,9 +51,12 @@ class taskManager {
             // pass task due date to date constructor
             let date = new Date(task.dueDate);
             // create variable with readable string representing the date
-            let formattedDate = date.toString();
+            let formattedDate = date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+            // use regex to match date format MM/DD/YYYY and remove timestamp
+            let regEx = /^\d{1,2}\/\d{1,2}\/\d{4}/;
+            let reformattedDate = formattedDate.match(regEx);
             // create variable to store the HTML of the current task
-            let taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, formattedDate, task.status, task.id);
+            let taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, reformattedDate, task.status, task.id);
             // push taskHtml to tasksHtmlList
             tasksHtmlList.push(taskHtml);
         }
